@@ -1,0 +1,41 @@
+question,option,input_type,input_id,dependence,dependence_value,required
+First name,Per Frederik,text,name_first,,,TRUE
+Last name,Scholander,text,name_last,,,TRUE
+Primary institution,Scripps Institute of Oceanography,text,institution,,,TRUE
+Country where you currently live,USA,text,country,,,TRUE
+Email address,scholander@ucsd.edu,text,email,,,TRUE
+Gender,Male,select,gender,,,FALSE
+Gender,Female,select,gender,,,FALSE
+Gender,Non-binary,select,gender,,,FALSE
+Gender,Other,select,gender,,,FALSE
+Ethnicity,Hispanic or Latino,select,ethnicity,,,FALSE
+Ethnicity,Not Hispanic or Latino,select,ethnicity,,,FALSE
+Ethnicity,Other,select,ethnicity,,,FALSE
+Race,American Indian or Alaska Native,checkbox,race,,,FALSE
+Race,Asian,checkbox,race,,,FALSE
+Race,Black or African American,checkbox,race,,,FALSE
+Race,Native Hawaiian or other Pacific Islander,checkbox,race,,,FALSE
+Race,White,checkbox,race,,,FALSE
+Race,Other,checkbox,race,,,FALSE
+Describe your expertise relevant to PSInet (choose all that apply). ,I collect field measurements of ecosystem water potential (including plant and/or soil water potential dynamics),checkbox,expertise,,,FALSE
+Describe your expertise relevant to PSInet (choose all that apply). ,I conduct field or lab measurements of plant water potential to understand eco-evolutionary tradeoffs,checkbox,expertise,,,FALSE
+Describe your expertise relevant to PSInet (choose all that apply). ,I synthesize network information about plant water status and fluxes,checkbox,expertise,,,FALSE
+Describe your expertise relevant to PSInet (choose all that apply). ,I model the dynamics of ecosystem water and carbon cycling,checkbox,expertise,,,FALSE
+Describe your expertise relevant to PSInet (choose all that apply). ,I utilize remote sensing observations to understand ecosystem water status and flows,checkbox,expertise,,,FALSE
+Describe your expertise relevant to PSInet (choose all that apply). ,Other,checkbox,expertise,,,FALSE
+"If other, please describe. ",Your answer,text,expertise_other,expertise,Other,FALSE
+Please indicate your interest in the following PSInet activities (choose all that apply). ,Sharing water potential data to the PSInet database,checkbox,activity,,,FALSE
+Please indicate your interest in the following PSInet activities (choose all that apply). ,Attending a short training session ('datathon') to learn how to submit my data,checkbox,activity,,,FALSE
+Please indicate your interest in the following PSInet activities (choose all that apply). ,Testing functionality of the PSInet database and submission forms,checkbox,activity,,,FALSE
+Please indicate your interest in the following PSInet activities (choose all that apply). ,"(For early career scientists) Attending PSInet-sponsored training workshops like Physfest, the Plant Hydraulics workshop, and/or Fluxcourse",checkbox,activity,,,FALSE
+Please indicate your interest in the following PSInet activities (choose all that apply). ,"Organizing PSInet webinars, sessions, and other virtual networking events at conferences such as AGU, ESA, EGU, etc",checkbox,activity,,,FALSE
+Please indicate your interest in the following PSInet activities (choose all that apply). ,Presenting at PSInet webinars or conference sessions,checkbox,activity,,,FALSE
+Please indicate your interest in the following PSInet activities (choose all that apply). ,Developing public outreach tools and installations to translate the importance of water potential dynamics for a general audience,checkbox,activity,,,FALSE
+Please indicate your interest in the following PSInet activities (choose all that apply). ,"Moderating/facilitating PSInet virtual networking and communication spaces (social media, Slack, etc.)",checkbox,activity,,,FALSE
+Please indicate your interest in the following PSInet activities (choose all that apply). ,Writing a blog post for the PSInet website,checkbox,activity,,,FALSE
+Please indicate your interest in the following PSInet activities (choose all that apply). ,Other,checkbox,activity,,,FALSE
+"If other, please describe. ",Your answer,text,activity_other,activity,Other,FALSE
+May we add you to our virtual communication platforms? ,Email listserv and Slack,mc,platform,,,TRUE
+May we add you to our virtual communication platforms? ,Email listserv only,mc,platform,,,TRUE
+May we add you to our virtual communication platforms? ,Slack only,mc,platform,,,TRUE
+May we add you to our virtual communication platforms? ,Neither,mc,platform,,,TRUE
