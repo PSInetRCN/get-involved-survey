@@ -252,14 +252,14 @@
     },
     "fs": {
       "Package": "fs",
-      "Version": "1.6.2",
+      "Version": "1.6.3",
       "Source": "Repository",
       "Repository": "CRAN",
       "Requirements": [
         "R",
         "methods"
       ],
-      "Hash": "94af08e0aa9675a16fadbb3aaaa90d2a"
+      "Hash": "47b5f30c720c23999b913a1a635cf0bb"
     },
     "gargle": {
       "Package": "gargle",
@@ -706,7 +706,7 @@
     },
     "sass": {
       "Package": "sass",
-      "Version": "0.4.6",
+      "Version": "0.4.7",
       "Source": "Repository",
       "Repository": "CRAN",
       "Requirements": [
@@ -716,7 +716,7 @@
         "rappdirs",
         "rlang"
       ],
-      "Hash": "cc3ec7dd33982ef56570229b62d6388e"
+      "Hash": "6bd4d33b50ff927191ec9acbf52fd056"
     },
     "shiny": {
       "Package": "shiny",
@@ -754,9 +754,14 @@
     },
     "shinysurveys": {
       "Package": "shinysurveys",
-      "Version": "0.2.0",
-      "Source": "Repository",
-      "Repository": "CRAN",
+      "Version": "0.2.0.9000",
+      "Source": "GitHub",
+      "RemoteType": "github",
+      "RemoteHost": "api.github.com",
+      "RemoteRepo": "shinysurveys",
+      "RemoteUsername": "jmbo1190",
+      "RemoteRef": "multi-check",
+      "RemoteSha": "d0003823b6fbaa00f130725be7deac83925bacfd",
       "Requirements": [
         "R",
         "htmltools",
@@ -764,7 +769,7 @@
         "sass",
         "shiny"
       ],
-      "Hash": "ddcf62b14c4c6bb28000c96b4b66a07c"
+      "Hash": "b1358f20e381c8208846a679d14a8eef"
     },
     "sourcetools": {
       "Package": "sourcetools",
