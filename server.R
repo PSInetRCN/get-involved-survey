@@ -17,6 +17,18 @@ function(input, output, session) {
     # Obtain and and append submitted results
     response <- getSurveyData(custom_id = input$email,
                               include_dependencies = FALSE)
+    
+    timestamp <- data.frame(
+      subject_id = input$email,
+      question_id = "timestamp",
+      question_type = "time",
+      response = as.character(Sys.time())
+    )
+    
+    response <- bind_rows(response, timestamp)
+    
+    print(response)
+    
     updated <- bind_rows(previous, response)
     
     # Write back to Google sheet
@@ -76,12 +88,26 @@ function(input, output, session) {
       )
     )
     
+    # find a way to validate if email field is a valid email? otherwise might crash app.
+    
     smtp_send(survey_message,
       from = "renatadiaz.sci@gmail.com", #change this
       to = "renatadiaz.sci@gmail.com", #eventually replace this with input$email
       subject = "New survey response",
       credentials = creds_file(".secrets/gmail_creds")
     )
+    
+    # Send email to IU listserv inviting person
+    # listserv_message <- compose_email(
+    #   body = paste("invite psinet-l ", input$email)
+    # )
+    # 
+    # smtp_send(survey_message,
+    #           from = "renatadiaz.sci@gmail.com", #change this
+    #           to = "renatadiaz.sci@gmail.com", #eventually replace this with IU listserv email
+    #           subject = "Add to listserv",
+    #           credentials = creds_file(".secrets/gmail_creds")
+    # )
     
   })
   
