@@ -3,12 +3,12 @@ function(input, output, session) {
   
   observeEvent(input$submit, {
     gs4_auth(
-   #   cache = gargle::gargle_oauth_cache(),
-  #    email = gargle::gargle_oauth_email()
-      email = NA
+      cache = gargle::gargle_oauth_cache(),
+      email = gargle::gargle_oauth_email()
     )
     
     # Retrieve existing datasheet
+    # Change this URL to the real one before merging upstream.
     sheet_url <-
       "https://docs.google.com/spreadsheets/d/1X697V-KqTA0v26dyFbFxx8mPeKTVsBAyYJO0MkDKbkA/edit#gid=0"
     previous <- read_sheet(sheet_url)
@@ -27,8 +27,7 @@ function(input, output, session) {
     
     response <- bind_rows(response, timestamp)
     
-    print(response)
-    
+
     updated <- bind_rows(previous, response)
     
     # Write back to Google sheet
@@ -89,25 +88,37 @@ function(input, output, session) {
     )
     
     # find a way to validate if email field is a valid email? otherwise might crash app.
-    
-    smtp_send(survey_message,
-      from = "renatadiaz.sci@gmail.com", #change this
-      to = "renatadiaz.sci@gmail.com", #eventually replace this with input$email
+    # 
+    smtp_send(
+      survey_message,
+      from = "renatadiaz.sci@gmail.com",
+      #change this
+      to = "renatadiaz.sci@gmail.com",
+      #eventually replace this with input$email
       subject = "New survey response",
-      credentials = creds_file(".secrets/gmail_creds")
+      credentials = creds_envvar(
+        user = "renatadiaz.sci@gmail.com",
+        pass_envvar = "SMTP_PASSWORD",
+        provider = NULL,
+        host = "smtp.gmail.com",
+        port = 465,
+        use_ssl = FALSE
+      )
     )
     
     # Send email to IU listserv inviting person
     # listserv_message <- compose_email(
     #   body = paste("invite psinet-l ", input$email)
     # )
-    # 
+    #
     # smtp_send(survey_message,
     #           from = "renatadiaz.sci@gmail.com", #change this
     #           to = "renatadiaz.sci@gmail.com", #eventually replace this with IU listserv email
     #           subject = "Add to listserv",
     #           credentials = creds_file(".secrets/gmail_creds")
     # )
+    
+    
     
   })
   
