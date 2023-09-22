@@ -107,25 +107,27 @@ function(input, output, session) {
           use_ssl = FALSE
         )
       )
-      
-      #  Send email to IU listserv inviting person
-      listserv_message <- compose_email(
-        body = paste("ADD psinet-l ", input$email)
-      )
-      
-      smtp_send(listserv_message,
-                from = "psinetrcn@gmail.com", #change this
-                to = "list@list.indiana.edu",
-                subject = paste("ADD psinet-l ", input$email),
-                credentials = creds_envvar(
-                  user = "psinetrcn@gmail.com",
-                  pass_envvar = "SMTP_PASSWORD",
-                  provider = NULL,
-                  host = "smtp.gmail.com",
-                  port = 465,
-                  use_ssl = FALSE
-                )
-      )
+      if (grepl("listserv", input$platform)) {
+        
+        #  Send email to IU listserv inviting person
+        listserv_message <- compose_email(
+          body = paste("ADD psinet-l ", input$email)
+        )
+        
+        smtp_send(listserv_message,
+                  from = "psinetrcn@gmail.com", #change this
+                  to = "list@list.indiana.edu",
+                  subject = paste("ADD psinet-l ", input$email),
+                  credentials = creds_envvar(
+                    user = "psinetrcn@gmail.com",
+                    pass_envvar = "SMTP_PASSWORD",
+                    provider = NULL,
+                    host = "smtp.gmail.com",
+                    port = 465,
+                    use_ssl = FALSE
+                  )
+        )
+      }
       
     } else {
       # Show submission message
