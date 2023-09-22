@@ -7,8 +7,12 @@ library(shinysurveys)
 # See SO: https://stackoverflow.com/questions/71512952/is-there-any-other-way-to-create-dependent-survey-questionnaire-using-r-shiny
 library(googlesheets4)
 library(bslib)
+library(stringr)
+library(blastula)
 
 df <- read_csv("questions.csv")
+
+source("email_logic.R")
 
 
 # Extend types of inputs to checkbox

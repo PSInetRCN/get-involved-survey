@@ -1,9 +1,8 @@
 check_email <- function(email_provided) {
   
-
   # Check that email contains @ exactly 1 time
   
-  if(length(str_extract_all(pattern = "@", email_provided)) != 1) {
+  if(length(str_extract_all(pattern = "@", email_provided)[[1]]) != 1) {
     return(FALSE)
   }
   
