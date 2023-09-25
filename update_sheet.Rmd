@@ -1,0 +1,30 @@
+---
+title: "Update GoogleSheet"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(pins)
+library(googlesheets4)
+
+get_involved_data_toy <- board_connect()
+
+latest <- pin_read(get_involved_data_toy, name = "renatadiaz/getinvolvedtoy")
+
+gs4_auth(
+  cache = here::here(".secrets"),
+  email = gargle::gargle_oauth_email()
+)
+
+# Retrieve existing datasheet
+sheet_url <- "https://docs.google.com/spreadsheets/d/1X697V-KqTA0v26dyFbFxx8mPeKTVsBAyYJO0MkDKbkA/edit#gid=0"
+previous <- read_sheet(sheet_url)
+
+if(nrow(latest) > nrow(previous)) {
+  
+  write_sheet(latest, ss = sheet_url, sheet = 'Sheet1')
+  
+}
+
+```

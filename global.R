@@ -9,6 +9,7 @@ library(googlesheets4)
 library(bslib)
 library(stringr)
 library(blastula)
+library(pins)
 
 df <- read_csv("questions.csv")
 

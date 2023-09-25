@@ -2,15 +2,10 @@ function(input, output, session) {
   renderSurvey()
   
   observeEvent(input$submit, {
-    gs4_auth(
-      cache = gargle::gargle_oauth_cache(),
-      email = gargle::gargle_oauth_email()
-    )
+    get_involved_data_toy <- board_connect()
     
-    # Retrieve existing datasheet
-    sheet_url <- "https://docs.google.com/spreadsheets/d/1TZh0P8gsjvq572LzI0rWTikrvplyvMYVH8rpOJ7fz30/edit#gid=0"
-    previous <- read_sheet(sheet_url)
-    
+    previous <- get_involved_data_toy |>
+      pin_read("renatadiaz/getinvolvedtoy")
     
     # Obtain and and append submitted results
     response <- getSurveyData(custom_id = input$email,
@@ -28,8 +23,9 @@ function(input, output, session) {
     
     updated <- bind_rows(previous, response)
     
-    # Write back to Google sheet
-    write_sheet(updated, ss = sheet_url, sheet = 'Sheet1')
+    # Write back to pin
+    get_involved_data_toy |>
+      pin_write(updated, "renatadiaz/getinvolvedtoy")
     
     email_ok <- check_email(input$email)
     
