@@ -2,10 +2,10 @@ function(input, output, session) {
   renderSurvey()
   
   observeEvent(input$submit, {
-    get_involved_data_toy <- board_connect()
+    posit_board <- board_connect()
     
-    previous <- get_involved_data_toy |>
-      pin_read("renatadiaz/getinvolvedtoy")
+    previous <- posit_board |>
+      pin_read("renatadiaz/getinvolved_responses")
     
     # Obtain and and append submitted results
     response <- getSurveyData(custom_id = input$email,
@@ -24,8 +24,8 @@ function(input, output, session) {
     updated <- bind_rows(previous, response)
     
     # Write back to pin
-    get_involved_data_toy |>
-      pin_write(updated, "renatadiaz/getinvolvedtoy")
+    posit_board |>
+      pin_write(updated, "renatadiaz/getinvolved_responses")
     
     email_ok <- check_email(input$email)
     
